@@ -3,6 +3,7 @@ package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -188,6 +189,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
+
+        if(email.equals("tomas@one.lt"))
+        {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        else if(email == "lukas@one.lt")
+        {
+
+        }
+
     }
 
     private boolean isEmailValid(String email) {
