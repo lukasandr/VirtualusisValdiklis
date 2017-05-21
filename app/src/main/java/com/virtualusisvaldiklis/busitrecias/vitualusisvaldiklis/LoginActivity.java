@@ -192,8 +192,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         if(email.equals("tomas@one.lt"))
         {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, PagrindinisLangas.class);
             startActivity(intent);
+
         }
         else if(email == "lukas@one.lt")
         {

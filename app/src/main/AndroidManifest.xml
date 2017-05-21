@@ -23,6 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PagrindinisLangas"
+            android:label="@string/title_activity_pagrindinis_langas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GautiIsdestymai"
+            android:label="@string/title_activity_gauti_isdestymai"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MygtukuRedaktorius"
+            android:label="@string/title_activity_mygtuku_redaktorius"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
