@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -61,6 +62,8 @@ public class MygtukuRedaktorius extends AppCompatActivity {
             public void onClick(View view)
             {
                 IsdestymuSarasas.isdestymai.add(isdestymas);
+                Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
+                Miniatiura.saveToGallery(screenshot);
                 finish();
 
             }
@@ -186,7 +189,8 @@ public class MygtukuRedaktorius extends AppCompatActivity {
 //        startActivity(intent);
             finish();
     }
-    
+
+
 
 
 }
