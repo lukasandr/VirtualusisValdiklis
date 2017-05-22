@@ -7,13 +7,11 @@ public class Mygtukas {
     Pozicija pozicija;
     String komanda;
     int id;
-    static int idCount;
-    public Mygtukas(int x, int y, String komanda)
+    public Mygtukas(int x, int y, int id, String komanda)
     {
         pozicija = new Pozicija(x,y);
         this.komanda = komanda;
-        id = idCount;
-        idCount++;
+        this.id = id;
     }
     public void ChangePosition(int x, int y)
     {

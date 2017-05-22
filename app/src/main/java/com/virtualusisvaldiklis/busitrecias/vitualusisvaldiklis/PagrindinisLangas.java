@@ -16,10 +16,11 @@ import android.view.MenuItem;
 
 public class PagrindinisLangas extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    IsdestymuSarasas isdestymuSarasas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (isdestymuSarasas == null) isdestymuSarasas = new IsdestymuSarasas();
         setContentView(R.layout.activity_pagrindinis_langas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

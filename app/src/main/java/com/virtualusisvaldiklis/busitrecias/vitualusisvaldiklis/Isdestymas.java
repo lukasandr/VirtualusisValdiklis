@@ -1,5 +1,6 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,6 +10,10 @@ import java.util.List;
 public class Isdestymas {
     String pavadinimas;
     List<Mygtukas> mygtukai;
+    public Isdestymas()
+    {
+        mygtukai = new ArrayList<Mygtukas>();
+    }
     public void MoveButton(int id, int x, int y)
     {
         if (mygtukai == null) return;
@@ -17,7 +22,9 @@ public class Isdestymas {
             mygtukai.get(id).ChangePosition(x,y);
         }
     }
-    public void SaveLayout(){}
+    public void SaveLayout(){
+        IsdestymuSarasas.isdestymai.add(this);
+    }
     public void RestoreLayout(){}
 
 }

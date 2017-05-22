@@ -28,21 +28,26 @@ public class MygtukuRedaktorius extends AppCompatActivity {
     public int newButtonLocationX;
     public int newButtonLocationY;
     RelativeLayout isdestymuLaukas;
+    FloatingActionButton saveLayout;
     int buttonIDCount;
+    Isdestymas isdestymas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         buttonIDCount = 0;
+        isdestymas = new Isdestymas();
         setContentView(R.layout.activity_mygtuku_redaktorius);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        saveLayout = (FloatingActionButton) findViewById(R.id.saveLayout);
+        saveLayout.setActivated(false);
         isdestymuLaukas = (RelativeLayout) findViewById(R.id.isdestymuLaukas);
         //addTouchListener();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
                                    @Override
                                    public void onClick(View view) {
-                                       Snackbar.make(view, "Touch screen where you want the button to appear", Snackbar.LENGTH_LONG)
+                                       Snackbar.make(view, "Paspauskite ant ekrano ten, kur norite issaugoti", Snackbar.LENGTH_LONG)
                                                .setAction("Action", null).show();
                                        listenForInput();
                                    }
@@ -50,6 +55,16 @@ public class MygtukuRedaktorius extends AppCompatActivity {
                                }
 
         );
+        saveLayout.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                IsdestymuSarasas.isdestymai.add(isdestymas);
+                finish();
+
+            }
+        });
     }
     void listenForInput()
     {
@@ -129,10 +144,9 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         button.setMinHeight(0);
         button.setMinWidth(0);
         isdestymuLaukas.addView(button);
-        Mygtukas mygtukas = new Mygtukas(x, y, button.getText().toString());
-
-
-
+        Mygtukas mygtukas = new Mygtukas(x, y, buttonIDCount, button.getText().toString());
+        isdestymas.mygtukai.add(mygtukas);
+        if (saveLayout.isActivated() == false) saveLayout.setActivated(true);
     }
     String editButtonPrompt(String komanda)
     {
@@ -168,9 +182,9 @@ public class MygtukuRedaktorius extends AppCompatActivity {
             return komanda;
     }
     public void onBackPressed() {
-        Intent intent = new Intent(this, PagrindinisLangas.class);
-        startActivity(intent);
-
+//        Intent intent = new Intent(this, PagrindinisLangas.class);
+//        startActivity(intent);
+            finish();
     }
 
     //Sitas crashinas
