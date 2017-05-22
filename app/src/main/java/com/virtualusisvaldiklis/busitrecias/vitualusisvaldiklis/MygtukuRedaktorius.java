@@ -172,30 +172,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-    //Sitas crashinas
-    //Dariau pagal totoriala: https://www.youtube.com/watch?v=ccbMZLuVLLw
-    /*public void addTouchListener(){
-        Image image = (Image) findViewById(R.id.mygtukuRedaktorius);
-
-        image.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                newButtonLocationX = (int)event.getX();
-                newButtonLocationY = (int)event.getY();
-
-                String message = String.format("Coordinates: (%, %)", newButtonLocationX, newButtonLocationY);
-                Log.d(DEBUGTAG, message);
-                return false;
-            }
-        });
-    }*/
-
-
-
-
-
-
+    
 
 
 }

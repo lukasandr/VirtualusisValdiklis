@@ -5,4 +5,6 @@ package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
  */
 
 public class Miniatiura {
+
+
 }
