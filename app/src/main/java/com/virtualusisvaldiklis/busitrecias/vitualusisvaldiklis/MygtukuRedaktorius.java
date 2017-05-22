@@ -61,13 +61,44 @@ public class MygtukuRedaktorius extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                IsdestymuSarasas.isdestymai.add(isdestymas);
-                Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
-                Miniatiura.saveToGallery(screenshot);
-                finish();
-
+                saveLayoutClicked();
             }
         });
+    }
+    void saveLayoutClicked()
+    {
+        final String pav[] = new String[1];
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Issaugoti isdestyma");
+        builder.setMessage("Iveskite isdestymo pavadinima:");
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                isdestymuLaukas.setOnTouchListener(null); // disable adding buttons by clicking on screen
+                pav[0] = input.getText().toString();
+                saveLayout(pav[0]);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+    void saveLayout(String name)
+    {
+        isdestymas.pavadinimas = name;
+        IsdestymuSarasas.isdestymai.add(isdestymas);
+        Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
+        Miniatiura.saveToGallery(screenshot);
+        finish();
     }
     void listenForInput()
     {
@@ -100,7 +131,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
 // Set up the input
         final EditText input = new EditText(this);
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
 // Set up the buttons
@@ -161,7 +192,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         final String[] naujaKomanda = new String[1];
         final boolean[] isCancel = {true};
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
 // Set up the buttons
