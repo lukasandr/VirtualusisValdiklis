@@ -1,5 +1,6 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -44,12 +45,11 @@ public class PagrindinisLangas extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+       // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+     //   if (drawer.isDrawerOpen(GravityCompat.START)) {
+     //       drawer.closeDrawer(GravityCompat.START);
+//            super.onBackPressed();
+     //   }
     }
 
     @Override
@@ -81,11 +81,14 @@ public class PagrindinisLangas extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_galerija) {
-            // Handle the camera action
+            Intent intent = new Intent(this, Galerija.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gautiIsdestymai) {
-
+            Intent intent = new Intent(this, GautiIsdestymai.class);
+            startActivity(intent);
         } else if (id == R.id.nav_naujasIsdestymas) {
-
+            Intent intent = new Intent(this, MygtukuRedaktorius.class);
+            startActivity(intent);
         } else if (id == R.id.nav_view) {
         }
 
@@ -93,6 +96,8 @@ public class PagrindinisLangas extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
     public void count(){}
     public void showMainMenu(){}

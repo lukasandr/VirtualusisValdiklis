@@ -34,6 +34,14 @@
         <activity
             android:name=".MygtukuRedaktorius"
             android:label="@string/title_activity_mygtuku_redaktorius"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Galerija"
+            android:label="@string/title_activity_galerija"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DrauguSarasas"
+            android:label="@string/title_activity_draugu_sarasas"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

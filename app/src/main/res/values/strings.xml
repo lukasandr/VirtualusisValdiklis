@@ -22,4 +22,6 @@
     <string name="title_activity_gauti_isdestymai">GautiIsdestymai</string>
     <string name="title_activity_isdestymo_redaktorius">IsdestymoRedaktorius</string>
     <string name="title_activity_mygtuku_redaktorius">MygtukuRedaktorius</string>
+    <string name="title_activity_galerija">Galerija</string>
+    <string name="title_activity_draugu_sarasas">DrauguSarasas</string>
 </resources>

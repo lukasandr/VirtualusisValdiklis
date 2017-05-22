@@ -1,6 +1,5 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class GautiIsdestymai extends AppCompatActivity {
+public class DrauguSarasas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gauti_isdestymai);
+        setContentView(R.layout.activity_draugu_sarasas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -25,20 +24,6 @@ public class GautiIsdestymai extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
-
-
-    public void loadReceivedLayouts(){}
-    public void checkLayout(){}
-    public void activateSaveButton(){}
-    public void save(){}
-    public void showMessage(String message){}
-    public void deleteCheckedLayout(){}
-    public void show(){}
-
-    public void onBackPressed() {
-        Intent intent = new Intent(this, PagrindinisLangas.class);
-        startActivity(intent);
     }
 
 

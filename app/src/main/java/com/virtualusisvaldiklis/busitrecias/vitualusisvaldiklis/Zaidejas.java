@@ -1,5 +1,7 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import android.view.View;
+
 /**
  * Created by Lukas on 2017-05-21.
  */
@@ -19,4 +21,6 @@ public class Zaidejas {
     public void checkLayout(){}
     public void saveCheckedLayouts(){}
     public void deleteCheckedLayouts(){}
+
+
 }
