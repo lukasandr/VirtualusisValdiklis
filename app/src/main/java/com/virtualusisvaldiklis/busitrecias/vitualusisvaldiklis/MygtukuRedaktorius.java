@@ -97,7 +97,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         isdestymas.pavadinimas = name;
         IsdestymuSarasas.isdestymai.add(isdestymas);
         Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
-        Miniatiura.saveToGallery(screenshot);
+        Miniatiura.saveToGallery(screenshot, name);
         finish();
     }
     void listenForInput()

@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 public class Galerija extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class Galerija extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        IsdestymuSarasas isdestymuSarasas = IsdestymuSarasas.getInstance();
+        isdestymuSarasas.loadThumbnail("pirmas", (ImageView)findViewById(R.id.imgPicker));
     }
 
     public void onBackPressed() {
