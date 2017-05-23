@@ -39,7 +39,7 @@ public class Miniatiura extends AppCompatActivity
             try {
                // Date now = new Date();
                // android.text.format.DateFormat.format(name, now);
-                String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + name + ".jpg";
+                String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString() + "/" + name + ".jpg";
                 //String mPath =  now + ".jpg";
                 File imageFile = new File(mPath);
                 FileOutputStream outputStream = new FileOutputStream(mPath);

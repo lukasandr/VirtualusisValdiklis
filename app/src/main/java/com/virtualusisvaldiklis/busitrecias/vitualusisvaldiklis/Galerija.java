@@ -27,7 +27,7 @@ public class Galerija extends AppCompatActivity {
             }
         });
         IsdestymuSarasas isdestymuSarasas = IsdestymuSarasas.getInstance();
-        isdestymuSarasas.loadThumbnail("pirmas", (ImageView)findViewById(R.id.imgPicker));
+        isdestymuSarasas.loadThumbnail("pirmas", (ImageView)findViewById(R.id.imageView1));
     }
 
     public void onBackPressed() {

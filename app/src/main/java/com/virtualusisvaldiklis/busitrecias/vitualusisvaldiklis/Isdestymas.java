@@ -1,5 +1,9 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import android.content.Context;
+import android.os.Environment;
+
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +26,24 @@ public class Isdestymas {
             mygtukai.get(id).ChangePosition(x,y);
         }
     }
-    public void SaveLayout(){
+    public void saveLayout(){
         IsdestymuSarasas.isdestymai.add(this);
+
+        //save to memory
+        String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString() + "/" + pavadinimas + ".txt";
+        String text = pavadinimas + "\n";
+        for (Mygtukas m : mygtukai) {
+            text += m.komanda + " " + m.pozicija.x + " " + m.pozicija.y + "\n";
+        }
+        try {
+            FileOutputStream outputStream = new FileOutputStream(mPath);
+            outputStream.write(text.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     public void RestoreLayout(){}
 

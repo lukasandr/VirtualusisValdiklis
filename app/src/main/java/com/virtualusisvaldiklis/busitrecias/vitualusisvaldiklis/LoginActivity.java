@@ -190,7 +190,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
         }
 
-        if(email.equals("tomas@one.lt"))
+        if(email.equals("@"))
         {
             Intent intent = new Intent(this, PagrindinisLangas.class);
             startActivity(intent);
