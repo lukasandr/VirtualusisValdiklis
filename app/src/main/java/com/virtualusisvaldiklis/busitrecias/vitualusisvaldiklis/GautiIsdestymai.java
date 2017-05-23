@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class GautiIsdestymai extends AppCompatActivity {
-
+    public int countFriends = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,8 @@ public class GautiIsdestymai extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        if(countFriends == 0) InformacinisLangas.showMessage("Jus neturite draugu", this);
     }
 
 
@@ -37,8 +39,7 @@ public class GautiIsdestymai extends AppCompatActivity {
     public void show(){}
 
     public void onBackPressed() {
-        Intent intent = new Intent(this, PagrindinisLangas.class);
-        startActivity(intent);
+        finish();
     }
 
 
