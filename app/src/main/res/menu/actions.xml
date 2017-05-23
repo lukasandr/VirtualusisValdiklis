@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_edit"
+        android:title="@string/str_cnt_mnu_edit"
+        />
+
+    <item
+        android:id="@+id/menu_load"
+        android:title="@string/str_cnt_mnu_load"
+        />
+
+    <item
+        android:id="@+id/menu_delete"
+        android:title="@string/str_cnt_mnu_delete"
+        />
+    <item android:id="@+id/menu_share"
+        android:title="Siusti draugui"
+        />
+</menu>

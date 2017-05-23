@@ -6,7 +6,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 public class Galerija extends AppCompatActivity {
@@ -37,10 +41,40 @@ public class Galerija extends AppCompatActivity {
         imgs[4] = (ImageView)findViewById(R.id.imageView5);
         imgs[5] = (ImageView)findViewById(R.id.imageView6);
 
-        isdestymuSarasas.loadThumbnails(imgs);
+        int kiekis = isdestymuSarasas.loadThumbnails(imgs);
+        for (int i = 0; i < kiekis; i++)
+        {
+            registerForContextMenu(imgs[i]);
+        }
 
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.actions, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.menu_edit:
+                // load edit
+                return true;
+            case R.id.menu_delete:
+                // delete layout
+                return true;
+            case R.id.menu_load:
+                // load layout for use
+                return true;
+            case R.id.menu_share:
 
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
     public void onBackPressed() {
         Intent intent = new Intent(this, PagrindinisLangas.class);
         startActivity(intent);

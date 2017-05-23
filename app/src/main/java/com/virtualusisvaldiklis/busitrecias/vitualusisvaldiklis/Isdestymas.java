@@ -14,6 +14,7 @@ import java.util.List;
 public class Isdestymas {
     String pavadinimas;
     List<Mygtukas> mygtukai;
+    public int id;
     public Isdestymas()
     {
         mygtukai = new ArrayList<Mygtukas>();

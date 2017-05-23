@@ -20,8 +20,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_gauti_isdestymai">GautiIsdestymai</string>
-    <string name="title_activity_isdestymo_redaktorius">IsdestymoRedaktorius</string>
+    <string name="title_activity_isdestymo_redaktorius">Isdestym oRedaktorius</string>
     <string name="title_activity_mygtuku_redaktorius">MygtukuRedaktorius</string>
     <string name="title_activity_galerija">Galerija</string>
     <string name="title_activity_draugu_sarasas">DrauguSarasas</string>
+
+    <string name="str_cnt_mnu_load">Naudoti</string>
+    <string name="str_cnt_mnu_edit">Redaguoti</string>
+    <string name="str_cnt_mnu_delete">Istrinti</string>
 </resources>

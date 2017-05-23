@@ -56,7 +56,7 @@ public class IsdestymuSarasas extends AppCompatActivity {
         }
     }
 
-    public void loadThumbnails(ImageView [] imgs)
+    public int loadThumbnails(ImageView [] imgs)
     {
         String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString();
         int count = 0;
@@ -76,7 +76,9 @@ public class IsdestymuSarasas extends AppCompatActivity {
             try {
                 Bitmap b = BitmapFactory.decodeStream(new FileInputStream(miniatiuros[i]));
                 imgs[i].setImageBitmap(b);
-                isdestymoSukurejas(isdestymai[i]);
+                Isdestymas isdestymas = isdestymoSukurejas(isdestymai[i]);
+                isdestymas.id = i+1;
+                IsdestymuSarasas.isdestymai.add(isdestymas);
 
             }
             catch (FileNotFoundException e)
@@ -84,7 +86,7 @@ public class IsdestymuSarasas extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
+    return kiekis;
     }
     private File[] findFilesInDir(String dirName, final String ending) {
         File dir = new File(dirName);
@@ -116,13 +118,12 @@ public class IsdestymuSarasas extends AppCompatActivity {
                 mygPavadinimas = sc.next();
                 mygX = sc.nextInt();
                 mygY = sc.nextInt();
-                isd.mygtukai.add(i,new Mygtukas(mygX, mygY, i, mygPavadinimas));
+                isd.mygtukai.add(i,new Mygtukas(mygX, mygY, i+1, mygPavadinimas));
             }
         }catch (Exception e)
         {
             e.printStackTrace();
         }
-
         return isd;
     }
 
