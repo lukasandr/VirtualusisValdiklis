@@ -1,5 +1,6 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,6 +20,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Handler;
 
 /**
  * Created by Lukas on 2017-05-22.
@@ -35,7 +39,7 @@ public class Miniatiura extends AppCompatActivity
             return bitmap;
         }
 
-        public static void saveToGallery(Bitmap bitmap, String name) {
+        public static boolean saveToGallery(Bitmap bitmap, String name, Context context) {
             try {
                // Date now = new Date();
                // android.text.format.DateFormat.format(name, now);
@@ -47,13 +51,30 @@ public class Miniatiura extends AppCompatActivity
                 bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
                 outputStream.flush();
                 outputStream.close();
-
+                return true;
             }
             catch (Throwable e) {
                 // Several error may come out with file handling or OOM
                 e.printStackTrace();
+                InformacinisLangas.showMessage("Nepavyko issaugoti! \n Isitikinkite, kad programa turi galimybe pasiekti Failu narsykle (Settings > Apps > Virtualusis Valdiklis > Permissions > Storage)", context);
+                final boolean[] temp = new boolean[1];
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                          temp[0] = returnTrue();
+                    }
+                }, 2000);
+                return temp[0];
+
+
             }
         }
+
+        private static boolean returnTrue()
+        {
+            return true;
+        }
+
 
 
 

@@ -97,8 +97,9 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         isdestymas.pavadinimas = name;
         isdestymas.saveLayout();
         Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
-        Miniatiura.saveToGallery(screenshot, name);
-        finish();
+        if(Miniatiura.saveToGallery(screenshot, name, this)) finish();
+
+
     }
     void listenForInput()
     {
@@ -220,6 +221,8 @@ public class MygtukuRedaktorius extends AppCompatActivity {
 //        startActivity(intent);
             finish();
     }
+
+
 
 
 
