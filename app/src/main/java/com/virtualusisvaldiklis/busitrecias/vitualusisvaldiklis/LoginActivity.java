@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private View mIpAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
-
+        mIpAddress = (EditText) findViewById(R.id.IpAdresas);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String ipAddress = mIpAddress.toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -176,6 +178,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
+        } else if (!isIpValid(ipAddress)){
+
+            focusView = mIpAddress;
+            cancel = true;
         }
 
         if (cancel) {
@@ -190,12 +196,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
         }
 
-        if(isEmailValid(email))
+        if(isEmailValid(email) && isIpValid(ipAddress))
         {
             Intent intent = new Intent(this, PagrindinisLangas.class);
             startActivity(intent);
 
         }
+
+
 
 
     }
@@ -208,6 +216,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
+    }
+
+    private boolean isIpValid(String ipAddress){
+        return ipAddress.contains(".");
     }
 
     /**
