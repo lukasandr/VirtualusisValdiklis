@@ -73,7 +73,6 @@ public class PagrindinisLangas extends AppCompatActivity
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     void setupButtons(int id)
     {
-        id = 1;
         Isdestymas isdestymas = IsdestymuSarasas.isdestymai.get(id);
         for(int i = 0; i < isdestymas.mygtukai.size(); i++)
         {

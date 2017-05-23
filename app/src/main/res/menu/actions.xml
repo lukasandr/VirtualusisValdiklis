@@ -6,11 +6,6 @@
         />
 
     <item
-        android:id="@+id/menu_load"
-        android:title="@string/str_cnt_mnu_load"
-        />
-
-    <item
         android:id="@+id/menu_delete"
         android:title="@string/str_cnt_mnu_delete"
         />

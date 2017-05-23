@@ -49,16 +49,12 @@ public class Galerija extends AppCompatActivity {
         kiekis = isdestymuSarasas.loadThumbnails(imgs);
         for (int i = 0; i < kiekis; i++)
         {
+            final int thisCycleNo = i;
             registerForContextMenu(imgs[i]);
-            final int finalI = i;
-            imgs[i].setOnContextClickListener(new View.OnContextClickListener(
-            )
-            {
-
+            imgs[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onContextClick(View v) {
-                    selectedID = finalI+1;
-                    return true;
+                public void onClick(View v) {
+                    loadLayout(thisCycleNo);
                 }
             });
         }
@@ -81,10 +77,6 @@ public class Galerija extends AppCompatActivity {
             case R.id.menu_delete:
 
                 recreate();
-                return true;
-            case R.id.menu_load:
-                // load layout for use
-                loadLayout(selectedID);
                 return true;
             case R.id.menu_share:
                 Intent intent = new Intent(this, DrauguSarasas.class);
