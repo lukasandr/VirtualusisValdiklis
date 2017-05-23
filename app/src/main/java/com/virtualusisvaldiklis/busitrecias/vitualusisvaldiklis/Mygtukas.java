@@ -5,7 +5,7 @@ package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
  */
 public class Mygtukas {
     public Pozicija pozicija;
-    String komanda;
+    public String komanda;
     int id;
     public Mygtukas(int x, int y, int id, String komanda)
     {

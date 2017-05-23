@@ -1,7 +1,9 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +16,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 public class Galerija extends AppCompatActivity {
-
+    int kiekis;
+    int selectedID;
+    ImageView [] imgs;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class Galerija extends AppCompatActivity {
         IsdestymuSarasas isdestymuSarasas = IsdestymuSarasas.getInstance();
       //  isdestymuSarasas.loadThumbnails("pirmas", (ImageView)findViewById(R.id.imageView1));
 
-        ImageView [] imgs = new ImageView[6];
+        imgs = new ImageView[6];
         imgs[0] = (ImageView)findViewById(R.id.imageView1);
         imgs[1] = (ImageView)findViewById(R.id.imageView2);
         imgs[2] = (ImageView)findViewById(R.id.imageView3);
@@ -41,10 +46,21 @@ public class Galerija extends AppCompatActivity {
         imgs[4] = (ImageView)findViewById(R.id.imageView5);
         imgs[5] = (ImageView)findViewById(R.id.imageView6);
 
-        int kiekis = isdestymuSarasas.loadThumbnails(imgs);
+        kiekis = isdestymuSarasas.loadThumbnails(imgs);
         for (int i = 0; i < kiekis; i++)
         {
             registerForContextMenu(imgs[i]);
+            final int finalI = i;
+            imgs[i].setOnContextClickListener(new View.OnContextClickListener(
+            )
+            {
+
+                @Override
+                public boolean onContextClick(View v) {
+                    selectedID = finalI+1;
+                    return true;
+                }
+            });
         }
 
     }
@@ -67,6 +83,7 @@ public class Galerija extends AppCompatActivity {
                 return true;
             case R.id.menu_load:
                 // load layout for use
+                loadLayout(selectedID);
                 return true;
             case R.id.menu_share:
 
@@ -74,6 +91,16 @@ public class Galerija extends AppCompatActivity {
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+    void loadLayout(int item)
+    {
+        Intent intent = new Intent(this, PagrindinisLangas.class);
+        Bundle b = new Bundle();
+        b.putBoolean("loadLayout", true); //Your id
+        b.putInt("id", item);
+        intent.putExtras(b); //Put your id to your next Intent
+        startActivity(intent);
+
     }
     public void onBackPressed() {
         Intent intent = new Intent(this, PagrindinisLangas.class);
