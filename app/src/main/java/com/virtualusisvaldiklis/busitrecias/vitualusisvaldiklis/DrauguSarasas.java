@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class DrauguSarasas extends AppCompatActivity {
-
+    public int countFriends = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class DrauguSarasas extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        if(countFriends == 0) InformacinisLangas.showMessage("Jus neturite draugu", this);
     }
 
 

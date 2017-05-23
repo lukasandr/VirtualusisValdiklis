@@ -103,7 +103,6 @@ public class Galerija extends AppCompatActivity {
 
     }
     public void onBackPressed() {
-        Intent intent = new Intent(this, PagrindinisLangas.class);
-        startActivity(intent);
+        finish();
     }
 }
