@@ -27,7 +27,18 @@ public class Galerija extends AppCompatActivity {
             }
         });
         IsdestymuSarasas isdestymuSarasas = IsdestymuSarasas.getInstance();
-        isdestymuSarasas.loadThumbnail("pirmas", (ImageView)findViewById(R.id.imageView1));
+      //  isdestymuSarasas.loadThumbnails("pirmas", (ImageView)findViewById(R.id.imageView1));
+
+        ImageView [] imgs = new ImageView[6];
+        imgs[0] = (ImageView)findViewById(R.id.imageView1);
+        imgs[1] = (ImageView)findViewById(R.id.imageView2);
+        imgs[2] = (ImageView)findViewById(R.id.imageView3);
+        imgs[3] = (ImageView)findViewById(R.id.imageView4);
+        imgs[4] = (ImageView)findViewById(R.id.imageView5);
+        imgs[5] = (ImageView)findViewById(R.id.imageView6);
+
+        isdestymuSarasas.loadThumbnails(imgs);
+
     }
 
     public void onBackPressed() {
