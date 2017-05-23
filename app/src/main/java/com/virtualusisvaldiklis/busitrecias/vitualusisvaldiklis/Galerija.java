@@ -79,7 +79,8 @@ public class Galerija extends AppCompatActivity {
                 // load edit
                 return true;
             case R.id.menu_delete:
-                // delete layout
+
+                recreate();
                 return true;
             case R.id.menu_load:
                 // load layout for use

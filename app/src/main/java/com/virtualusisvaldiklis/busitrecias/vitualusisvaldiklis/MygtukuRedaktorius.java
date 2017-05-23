@@ -97,7 +97,11 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         isdestymas.pavadinimas = name;
         isdestymas.saveLayout();
         Bitmap screenshot = Miniatiura.screenShot(findViewById(R.id.isdestymuLaukas));
-        if(Miniatiura.saveToGallery(screenshot, name, this)) finish();
+        if(Miniatiura.saveToGallery(screenshot, name, this))
+        {
+            InformacinisLangas.showMessage("Issaugota sekmingai!", this);
+            finish();
+        }
 
 
     }
@@ -182,6 +186,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
         Mygtukas mygtukas = new Mygtukas(x, y, buttonIDCount, button.getText().toString());
         isdestymas.mygtukai.add(mygtukas);
         if (saveLayout.isActivated() == false) saveLayout.setActivated(true);
+
     }
     String editButtonPrompt(String komanda)
     {
@@ -217,8 +222,7 @@ public class MygtukuRedaktorius extends AppCompatActivity {
             return komanda;
     }
     public void onBackPressed() {
-//        Intent intent = new Intent(this, PagrindinisLangas.class);
-//        startActivity(intent);
+            InformacinisLangas.showQuestion("Ar norite atsaukti kurima?", this);
             finish();
     }
 
