@@ -32,6 +32,7 @@ public class Isdestymas {
         //save to memory
         String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString() + "/" + pavadinimas + ".txt";
         String text = pavadinimas + "\n";
+        text += mygtukai.size() + "\n";
         for (Mygtukas m : mygtukai) {
             text += m.komanda + " " + m.pozicija.x + " " + m.pozicija.y + "\n";
         }
@@ -45,6 +46,8 @@ public class Isdestymas {
         }
 
     }
-    public void RestoreLayout(){}
+    public void restoreLayout(){}
+
+
 
 }
