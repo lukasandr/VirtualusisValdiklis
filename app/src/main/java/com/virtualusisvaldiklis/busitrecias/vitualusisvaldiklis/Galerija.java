@@ -86,7 +86,8 @@ public class Galerija extends AppCompatActivity {
                 loadLayout(selectedID);
                 return true;
             case R.id.menu_share:
-
+                Intent intent = new Intent(this, DrauguSarasas.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onContextItemSelected(item);
