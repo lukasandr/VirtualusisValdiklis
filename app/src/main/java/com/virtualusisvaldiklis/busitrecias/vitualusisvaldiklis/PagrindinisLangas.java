@@ -56,6 +56,7 @@ public class PagrindinisLangas extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // load isdestymas
         Bundle b = getIntent().getExtras();
         boolean loadLayout = false;
         if(b != null)
@@ -66,8 +67,7 @@ public class PagrindinisLangas extends AppCompatActivity
         {
             int id = b.getInt("id");
             setupButtons(id);
-            //promptIP(); prasyti ivesti IP, laikinai isjungta
-            //startServer(""); // laikina funckija startuoti serveri
+
         }
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -89,12 +89,9 @@ public class PagrindinisLangas extends AppCompatActivity
             button.setOnClickListener(new View.OnClickListener() { // clicking the button opens edit prompt
                 @Override
                 public void onClick(View v) {
-                //sendToServer(button.getText().toString());
-                    try{
-                    out.println(button.getText().toString());}
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+                //todo - send string to server
+                    //String message = button.getText().toString();
+
                 }
             });
             button.setMinHeight(0);
@@ -102,36 +99,7 @@ public class PagrindinisLangas extends AppCompatActivity
             isdestymuLaukas.addView(button);
         }
     }
-    void promptIP()
-    {
-        final String ip[] = new String[1];
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Jugimasis prie serverio");
-        builder.setMessage("Iveskite serverio IP adresa (10.37.35.120)");
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-                ip[0] = input.getText().toString();
-                startServer(ip[0]);
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        builder.show();
-    }
-
-
-        void startServer(String ip)
-    {
-    }
 
     @Override
     public void onBackPressed() {
