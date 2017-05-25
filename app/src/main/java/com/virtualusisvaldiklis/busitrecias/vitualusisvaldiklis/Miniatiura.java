@@ -76,10 +76,4 @@ public class Miniatiura extends AppCompatActivity
         }
 
 
-
-
-
-
-
-
 }

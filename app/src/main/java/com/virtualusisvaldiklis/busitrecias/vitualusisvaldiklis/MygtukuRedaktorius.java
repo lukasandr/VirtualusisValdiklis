@@ -26,8 +26,6 @@ public class MygtukuRedaktorius extends AppCompatActivity {
 
     private static final String DEBUGTAG = "BusiTrecias";
 
-    public int newButtonLocationX;
-    public int newButtonLocationY;
     RelativeLayout isdestymuLaukas;
     FloatingActionButton saveLayout;
     int buttonIDCount;
@@ -220,7 +218,11 @@ public class MygtukuRedaktorius extends AppCompatActivity {
             return naujaKomanda[0];
         else
             return komanda;
+
+
     }
+
+    public void editButton(){};
     public void onBackPressed() {
             InformacinisLangas.showQuestion("Ar norite atsaukti kurima?", this);
             finish();

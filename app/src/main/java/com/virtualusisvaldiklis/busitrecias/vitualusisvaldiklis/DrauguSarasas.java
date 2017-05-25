@@ -1,5 +1,6 @@
 package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 
+import android.drm.DrmInfoRequest;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,8 +25,37 @@ public class DrauguSarasas extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        if(countFriends == 0) InformacinisLangas.showMessage("Jus neturite draugu", this);
+        showFriendsLis();
+    }
+
+    public void onBackPressed() {
+        finish();
     }
 
 
-}
+    public void showFriendsLis(){
+        //takes data from the phone memory and makes a list of friends
+        if(countFriends == 0) InformacinisLangas.showMessage("Jus neturite draugu!", this);
+
+    }
+
+    public void onFriendSelected(){
+        //determins which friend is selected
+
+        try
+        {
+            //contacts Google Firebase and sends Isdestymas to it
+            InformacinisLangas.showMessage("Sekmingai issiusta!", this);
+        }catch(Exception e)
+        {
+            InformacinisLangas.showMessage("Issiusti neapvyko!", this);
+        }
+        }
+    }
+
+
+
+
+
+
+

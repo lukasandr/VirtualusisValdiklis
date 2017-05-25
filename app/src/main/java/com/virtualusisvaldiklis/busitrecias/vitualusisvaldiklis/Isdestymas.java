@@ -47,7 +47,12 @@ public class Isdestymas {
         }
 
     }
-    public void restoreLayout(){}
+
+    public void deletLayout(){
+        //delete layout
+    }
+
+
 
 
 

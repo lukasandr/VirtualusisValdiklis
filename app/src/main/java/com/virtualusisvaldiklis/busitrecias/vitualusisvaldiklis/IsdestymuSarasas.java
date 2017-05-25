@@ -56,9 +56,9 @@ public class IsdestymuSarasas extends AppCompatActivity {
         }
     }
 
-    public int loadThumbnails(ImageView [] imgs)
+    public int loadThumbnails(ImageView [] imgs, String mPath)
     {
-        String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString();
+        //String mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString();
         int count = 0;
         File [] isdestymai = new File [6];
         File [] miniatiuros = new File[6];
@@ -125,6 +125,14 @@ public class IsdestymuSarasas extends AppCompatActivity {
             e.printStackTrace();
         }
         return isd;
+    }
+
+    public void getIsdestymas(){
+        //return isdestymas from List
+    }
+
+    public void addIsdestymas(){
+        //add Isdestymas to Lists
     }
 
  }

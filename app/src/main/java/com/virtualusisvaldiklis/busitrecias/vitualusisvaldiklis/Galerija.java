@@ -3,6 +3,7 @@ package com.virtualusisvaldiklis.busitrecias.vitualusisvaldiklis;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,14 +28,14 @@ public class Galerija extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
         IsdestymuSarasas isdestymuSarasas = IsdestymuSarasas.getInstance();
       //  isdestymuSarasas.loadThumbnails("pirmas", (ImageView)findViewById(R.id.imageView1));
 
@@ -46,7 +47,7 @@ public class Galerija extends AppCompatActivity {
         imgs[4] = (ImageView)findViewById(R.id.imageView5);
         imgs[5] = (ImageView)findViewById(R.id.imageView6);
 
-        kiekis = isdestymuSarasas.loadThumbnails(imgs);
+        kiekis = isdestymuSarasas.loadThumbnails(imgs, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).toString());
         for (int i = 0; i < kiekis; i++)
         {
             final int thisCycleNo = i;
@@ -96,6 +97,8 @@ public class Galerija extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
     public void onBackPressed() {
         finish();
     }
